@@ -7,7 +7,7 @@ person("Chao-Jen", "Wong", , "chao-jen.wong@seattlechildrens.org", role = c("aut
 Description: Tools facilatating methylation, copy number, and variant visualization and to import/export fibertools extract and VCF files
 License: Artistic-2.0
 Depend: R (>=4.4.0), plyranges, knitr
-Imports: GEnomeInfoDb, dplyr, stringr, VariantAnnotation
+Imports: GEnomeInfoDb, dplyr, stringr, VariantAnnotation, RColorBrewer
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
