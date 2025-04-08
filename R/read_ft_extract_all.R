@@ -1,6 +1,6 @@
 #` @export
-read_ft_extract_all <- function(file) {
-
+read_ft_extract_all <- function(file, col_names = NULL, genome_info = NULL, overlap_ranges = NULL) {
+  args <- plyranges:::norm_args_reader(genome_info)
   extra_cols <- col_names <- c(sam_flag = 'character', 
                                HP = 'character',
                                RG = 'character',
@@ -28,6 +28,12 @@ read_ft_extract_all <- function(file) {
                                `5mC` = 'character',
                                ref_5mC = 'character', 
                                `5mC_qual` = 'character')
-  rtracklayer::import.bed(file, extraCols = extra_cols)
+  
+  rtracklayer::import.bed(file, 
+                          colnames = col_names, 
+                          extraCols = extra_cols,
+                          genome = args$genome_info,
+                          seqinfo = args$seq_info,
+                          which = overlap_ranges)
   
 }
