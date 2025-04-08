@@ -1,9 +1,8 @@
 Package: tidyfiber
 Title: Tools to facilitate Fiber-seq downstream analysis (One Line, Title Case)
 Version: 0.0.99
-Authors@R: 
-person("Chao-Jen", "Wong", , "chao-jen.wong@seattlechildrens.org", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+Author: Chao-Jen Wong 
+Maintainer: Chao-Jen Wong <chao-jen.wong@seattlechildrens.org>
 Description: Tools facilatating methylation, copy number, and variant visualization and to import/export fibertools extract and VCF files
 License: Artistic-2.0
 Depend: R (>=4.4.0), plyranges, knitr
