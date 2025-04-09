@@ -19,7 +19,7 @@ binned_cnv <- function(file, keep_seq_level = paste0('chr', 1:22),
 
   # import bedgraph
   # Read the bedGraph file using readr
-  depth_gr <- plyranges::read_bed_graph(path)
+  depth_gr <- plyranges::read_bed_graph(file)
 
   # keep standard chromosome levels
   # check if keep_seq_levels exists
