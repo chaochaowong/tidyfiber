@@ -8,10 +8,11 @@
 #' my_function(5)  # Returns 10
 #' my_function(10) # Returns 20
 #' @export
-binned_cnv <- function(file, keep_seq_level = paste0('chr', 1:22),
+binned_cnv <- function(file, 
+                       keep_seq_level = paste0('chr', 1:22),
                        bin_size = 5e3L) {
   require(plyranges)
-
+  # file -> bigwig file
   # assert file exist
   assert <- all(file.exists(file))
   if (!assert)
@@ -19,7 +20,7 @@ binned_cnv <- function(file, keep_seq_level = paste0('chr', 1:22),
 
   # import bedgraph
   # Read the bedGraph file using readr
-  depth_gr <- plyranges::read_bed_graph(file)
+  depth_gr <- plyranges::read_bigwig(file)
 
   # keep standard chromosome levels
   # check if keep_seq_levels exists
@@ -45,7 +46,8 @@ binned_cnv <- function(file, keep_seq_level = paste0('chr', 1:22),
 }
 
 plot_cna <- function(binned_gr, chrom_sizes_gr,
-                     where=NULL) {
+                     where=NULL,
+                     ylim = c(0, 75)) {
   require(RColorBrewer)
   
   # filter
@@ -63,7 +65,7 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
   
   # define color palette
   chrom_palette <-
-    colorRampPalette(brewer.pal(12,"Set3"))(length(keep_seq_levels))
+    colorRampPalette(brewer.pal(12, 'Set3'))(length(keep_seq_levels))
   
   # Assign colors to chromosome names
   chrom_colors <- setNames(chrom_palette, keep_seq_levels)
@@ -80,10 +82,7 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
   
   df %>%
     ggplot(aes(y=score, x=global_start, color=seqnames)) +
-    geom_point(size=0.2, alpha=0.7) +
-    #geom_vline(xintercep = chrom_sizes_gr$cum_start,
-    #           linetype = 'dashed', color='grey75',
-    #           alpha=0.5) +
+    geom_point(size=0.2, alpha=0.8) +
     scale_x_continuous(
       breaks = chrom_sizes_gr$cum_midpoint,  
       labels = seqlevels(chrom_sizes_gr) 
@@ -93,7 +92,7 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
     theme_void() +
     theme(axis.text.x = element_text(angle = 90, hjust = 1), 
           legend.position = "none")  +
-    scale_y_continuous(limits = c(0, 25)) + 
+    scale_y_continuous(limits = ylim) + 
     scale_color_manual(values = chrom_colors)
 }
 
