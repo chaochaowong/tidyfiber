@@ -3,7 +3,8 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
                      ylim = c(0, 75),
                      annotate_cnv = FALSE,
                      cnv_gr = NULL,
-                     cnv_ypos = ylim[2]-5) {
+                     cnv_ypos = ylim[2]-5, 
+                     title = '5k Binned HiFiCNV Depth') {
   # note that the keep_sequence_levels depends on binned_gr;
   # keep chr1-22 color 
   require(RColorBrewer)
@@ -47,7 +48,7 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
       breaks = chrom_sizes_gr$cum_midpoint,  
       labels = as.character(seqnames(chrom_sizes_gr))
     ) +
-    labs(title = "5k Binned HiFiCNV Depth", 
+    labs(title = title,
          x = "Chromosome", y = "Depth") +
     theme_void() +
     theme(axis.text.x = element_text(angle = 90, hjust = 1), 
