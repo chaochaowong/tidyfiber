@@ -1,6 +1,6 @@
-#' Title: import ft extract <input.bam> --all bed.gz file
+#' Import ft extract --all BED GZ
 #'
-#' Tool to import ft extract --all output file
+#' Tool to import the output of ft extract <input.bam> --all. It is wrapper to the import family of function in \code{rtracklayer}
 #'
 #' @param file A path to the BED GZ file yielded by ft extract --all
 #' @param col_names An optional characger vector for including additional columns in file that is not part of the BED format

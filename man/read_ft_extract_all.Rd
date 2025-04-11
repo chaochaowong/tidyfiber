@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_ft_extract_all.R
 \name{read_ft_extract_all}
 \alias{read_ft_extract_all}
-\title{Title: import ft extract <input.bam> --all bed.gz file}
+\title{Import ft extract --all BED GZ}
 \usage{
 read_ft_extract_all(
   file,
@@ -24,7 +24,7 @@ read_ft_extract_all(
 A \code{GRanges} object with 26 additional columns specified in the fibertools-rs documentation.
 }
 \description{
-Tool to import ft extract --all output file
+Tool to import the output of ft extract <input.bam> --all. It is wrapper to the import family of function in \code{rtracklayer}
 }
 \references{
 The computational guide to Fiber-seq \url{https://fiberseq.github.io/fibertools/extracting/extract.html}
