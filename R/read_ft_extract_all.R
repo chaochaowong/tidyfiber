@@ -1,4 +1,20 @@
-# ` @export
+#' Title: import ft extract <input.bam> --all bed.gz file
+#'
+#' Tool to import ft extract --all output file
+#'
+#' @param file A path to the BED GZ file yielded by ft extract --all
+#' @param col_names An optional characger vector for including additional columns in file that is not part of the BED format
+#' @param genome_inf An optional character or Ranges object that contains information about the genome (e.g., 'hg38')
+#' @param overlap_ragnes An optional \code{GRanges} in the file that overlap the ranges will be return.
+#'
+#' @return A \code{GRanges} object with 26 additional columns specified in the fibertools-rs documentation.
+#'
+#' @examples
+#' 
+#' @references 
+#' The computational guide to Fiber-seq \url{https://fiberseq.github.io/fibertools/extracting/extract.html}
+#' 
+#' @export
 read_ft_extract_all <- function(file, col_names = NULL,
                                 genome_info = NULL,
                                 overlap_ranges = NULL) {
