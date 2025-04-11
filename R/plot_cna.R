@@ -56,13 +56,13 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
     scale_color_manual(values = chrom_colors) 
     
   
-  if (annotate_cnv) {
-    gg <- .annotate_cnv(gg, 
+  if (annotate_cnv & !is.null(cnv_gr)) {
+    gg <- .annotate_cnv(gg = gg, 
                         where = where,
-                        keep_seq_levels = keep_seq_levels, 
+                        keep_seq_levels = keep_seq_levels,
                         chrom_sizes_gr = chrom_sizes_gr, 
-                        cnv_gr, 
-                        cnv_ypos=ylim[2]-5)
+                        cnv_gr = cnv_gr, 
+                        cnv_ypos = cnv_ypos)
   }
   
   return(gg)
@@ -73,7 +73,7 @@ plot_cna <- function(binned_gr, chrom_sizes_gr,
                           keep_seq_levels,
                           chrom_sizes_gr, 
                           cnv_gr, 
-                          cnv_ypos=ylim[2]-5) {
+                          cnv_ypos) {
   
   # sanity check
   # tidy up cnv_gr
