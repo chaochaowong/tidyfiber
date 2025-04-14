@@ -4,10 +4,10 @@
 #'
 #' @param file A path to the BED GZ file yielded by ft extract --all
 #' @param col_names An optional characger vector for including additional columns in file that is not part of the BED format
-#' @param genome_inf An optional character or Ranges object that contains information about the genome (e.g., 'hg38')
+#' @param genome_info An optional character or Ranges object that contains information about the genome (e.g., 'hg38')
 #' @param overlap_ragnes An optional \code{GRanges} in the file that overlap the ranges will be return.
 #'
-#' @return A \code{GRanges} object with 26 additional columns specified in the fibertools-rs documentation.
+#' @return A \code{GRanges} object with 26 additional columns specified in the fibertools-rs `extract` documentation.
 #'
 #' @examples
 #' 
