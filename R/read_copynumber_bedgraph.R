@@ -3,7 +3,7 @@
 #' A wrapper of plyranges::read_bed_graph() to read HiFiCNV output copynumber.bedgraph file, convert to GRanges, and annotation the copy number score
 #'
 #' @details
-#' Variant type (SVTYPE) = "DUP" if score > 2 and = "DEL" if score = 0. NA otherwise.
+#' Copy number variant type (SVTYPE) = "DUP" if score > 2 and = "DEL" if score = 0. NA otherwise.
 #' 
 #' @param file A path to the VCF (GZ) file 
 #' @param keep_seq_levels A character vector indicating which seqlevels to keep

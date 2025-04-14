@@ -16,12 +16,12 @@ read_ft_extract_all(
 
 \item{col_names}{An optional characger vector for including additional columns in file that is not part of the BED format}
 
-\item{genome_inf}{An optional character or Ranges object that contains information about the genome (e.g., 'hg38')}
+\item{genome_info}{An optional character or Ranges object that contains information about the genome (e.g., 'hg38')}
 
 \item{overlap_ragnes}{An optional \code{GRanges} in the file that overlap the ranges will be return.}
 }
 \value{
-A \code{GRanges} object with 26 additional columns specified in the fibertools-rs documentation.
+A \code{GRanges} object with 26 additional columns specified in the fibertools-rs \code{extract} documentation.
 }
 \description{
 Tool to import the output of ft extract <input.bam> --all. It is wrapper to the import family of function in \code{rtracklayer}
